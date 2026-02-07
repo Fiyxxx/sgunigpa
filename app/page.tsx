@@ -84,7 +84,7 @@ export default function Home() {
   return (
     <>
       <StructuredData />
-      <main className="min-h-screen p-4 max-w-4xl mx-auto">
+      <main className="min-h-screen p-4 pb-16 max-w-4xl mx-auto">
         {/* Compact Header */}
         <div className="mb-4 text-center">
           <h1 className="text-6xl font-serif font-bold mb-1">
@@ -106,12 +106,17 @@ export default function Home() {
             <GPADisplay calculated={calculated} config={config} />
 
             {/* Course Headers */}
-            <div className="flex items-center gap-2 px-3 text-xs font-bold uppercase text-secondary">
-              <div className="w-24">Code</div>
-              <div className="flex-1">Grade</div>
-              <div className="w-14 text-center">{config.creditLabel}</div>
-              <div className="w-20">{config.passFail.label.split(" ")[0]}</div>
-              <div className="w-8"></div>
+            <div className="px-3">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase text-secondary">
+                <div className="w-24">Code</div>
+                <div className="flex-1">Grade</div>
+                <div className="w-14 text-center">{config.creditLabel}</div>
+                <div className="flex items-center gap-1">
+                  <div className="w-4"></div>
+                  <span>{config.passFail.label.split(" ")[0]}</span>
+                </div>
+                <div className="ml-auto w-[30px]"></div>
+              </div>
             </div>
 
             {/* Course List */}
@@ -157,15 +162,19 @@ export default function Home() {
         />
 
         {/* Footer */}
-        <footer className="mt-8 pt-4 border-t-2 border-foreground text-center">
-          <a
-            href="https://yourwebsite.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-secondary hover:text-foreground transition-colors underline"
-          >
-            Made by [Your Name]
-          </a>
+        <footer className="fixed bottom-0 left-0 right-0 py-3 border-t-2 border-foreground bg-background text-center">
+          <p className="text-xs text-secondary">
+            made by{" "}
+            <a
+              href="https://www.hansheng.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-accent transition-colors underline font-bold"
+            >
+              han sheng
+            </a>{" "}
+            ❤️
+          </p>
         </footer>
       </main>
     </>

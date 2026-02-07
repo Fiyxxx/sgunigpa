@@ -100,9 +100,14 @@ export default function Home() {
                 href="https://linkedin.com/in/goh-han-sheng"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 border-2 font-bold text-sm transition-all bg-card text-foreground border-foreground shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none"
+                aria-label="LinkedIn Profile"
+                className="border-2 transition-all bg-card border-foreground shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none overflow-hidden"
               >
-                LinkedIn
+                <img
+                  src="/gemini.png"
+                  alt="LinkedIn"
+                  className="w-10 h-10 object-cover"
+                />
               </a>
             </div>
           </div>

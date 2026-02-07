@@ -86,11 +86,26 @@ export default function Home() {
       <StructuredData />
       <main className="min-h-screen p-4 pb-16 max-w-4xl mx-auto">
         {/* Compact Header */}
-        <div className="mb-4 text-center">
-          <h1 className="text-6xl font-serif font-bold mb-1">
-            SGUniGPA
-          </h1>
-          <p className="text-sm text-secondary mb-4">Calculate your GPA</p>
+        <div className="mb-4">
+          <div className="flex justify-between items-start mb-4">
+            <div className="flex-1"></div>
+            <div className="flex-1 text-center">
+              <h1 className="text-6xl font-serif font-bold mb-1">
+                SGUniGPA
+              </h1>
+              <p className="text-sm text-secondary mb-4">Calculate your GPA</p>
+            </div>
+            <div className="flex-1 flex justify-end">
+              <a
+                href="https://linkedin.com/in/goh-han-sheng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 border-2 font-bold text-sm transition-all bg-card text-foreground border-foreground shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
           <div className="flex items-center gap-2 justify-center">
             <UniversitySelector
               selected={university}

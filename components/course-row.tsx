@@ -14,15 +14,33 @@ interface CourseRowProps {
 export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps) {
   return (
     <div className="bg-card border-2 border-foreground p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-      <div className="flex items-center gap-2 mb-2">
+      <div className="flex items-center gap-2">
         {/* Course Code */}
         <input
           type="text"
           value={course.code}
           onChange={(e) => onChange({ code: e.target.value })}
           placeholder="CS1101S"
-          className="w-28 px-2 py-2 text-xs border-2 border-foreground bg-background focus:outline-none focus:bg-accent/10"
+          className="w-24 px-2 py-2 text-xs border-2 border-foreground bg-background focus:outline-none focus:bg-accent/10"
         />
+
+        {/* Grade Selector - Inline boxes with overlapping borders */}
+        <div className="flex border-2 border-foreground">
+          {config.grades.map((g, index) => (
+            <button
+              key={g.grade}
+              type="button"
+              onClick={() => onChange({ grade: g.grade })}
+              className={cn(
+                "px-2 py-2 text-xs font-bold hover:bg-accent/20 transition-colors min-w-[2.5rem]",
+                index > 0 && "border-l-2 border-foreground",
+                course.grade === g.grade && "bg-foreground text-background"
+              )}
+            >
+              {g.grade}
+            </button>
+          ))}
+        </div>
 
         {/* Credits */}
         <input
@@ -32,7 +50,7 @@ export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps
           max="20"
           value={course.credits}
           onChange={(e) => onChange({ credits: parseFloat(e.target.value) || 0 })}
-          className="w-16 px-2 py-2 text-xs border-2 border-foreground bg-background text-center focus:outline-none focus:bg-accent/10"
+          className="w-14 px-2 py-2 text-xs border-2 border-foreground bg-background text-center focus:outline-none focus:bg-accent/10"
         />
 
         {/* S/U Toggle */}
@@ -54,23 +72,6 @@ export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps
         >
           <Trash2 size={14} />
         </button>
-      </div>
-
-      {/* Grade Selector - Always Visible */}
-      <div className="flex flex-wrap gap-0">
-        {config.grades.map((g) => (
-          <button
-            key={g.grade}
-            type="button"
-            onClick={() => onChange({ grade: g.grade })}
-            className={cn(
-              "border border-foreground px-2 py-1 text-xs font-bold hover:bg-accent/20 transition-colors min-w-[2.5rem]",
-              course.grade === g.grade && "bg-foreground text-background"
-            )}
-          >
-            {g.grade}
-          </button>
-        ))}
       </div>
     </div>
   );

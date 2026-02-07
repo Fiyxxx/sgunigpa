@@ -87,9 +87,10 @@ export default function Home() {
       <main className="min-h-screen p-4 max-w-4xl mx-auto">
         {/* Compact Header */}
         <div className="mb-4 text-center">
-          <h1 className="text-5xl font-serif font-bold mb-4">
+          <h1 className="text-6xl font-serif font-bold mb-1">
             SGUniGPA
           </h1>
+          <p className="text-sm text-secondary mb-4">Calculate your GPA</p>
           <div className="flex items-center gap-2 justify-center">
             <UniversitySelector
               selected={university}
@@ -105,10 +106,9 @@ export default function Home() {
             <GPADisplay calculated={calculated} config={config} />
 
             {/* Course Headers */}
-            <div className="flex items-center gap-2 px-2 text-xs font-bold uppercase text-secondary">
-              <div className="w-24">Code</div>
-              <div className="w-16">Grade</div>
-              <div className="w-12 text-center">{config.creditLabel}</div>
+            <div className="flex items-center gap-2 px-3 text-xs font-bold uppercase text-secondary">
+              <div className="w-28">Code</div>
+              <div className="w-16 text-center">{config.creditLabel}</div>
               <div className="flex-1">{config.passFail.label.split(" ")[0]}</div>
             </div>
 

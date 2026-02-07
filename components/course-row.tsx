@@ -3,7 +3,6 @@
 import { Course, UniversityConfig } from "@/lib/types";
 import { Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 interface CourseRowProps {
   course: Course;
@@ -13,28 +12,17 @@ interface CourseRowProps {
 }
 
 export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps) {
-  const [showGradeSelector, setShowGradeSelector] = useState(false);
-
   return (
-    <div className="bg-card border-2 border-foreground p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] relative">
-      <div className="flex items-center gap-2">
+    <div className="bg-card border-2 border-foreground p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      <div className="flex items-center gap-2 mb-2">
         {/* Course Code */}
         <input
           type="text"
           value={course.code}
           onChange={(e) => onChange({ code: e.target.value })}
           placeholder="CS1101S"
-          className="w-24 px-2 py-1 text-xs border-2 border-foreground bg-background focus:outline-none focus:bg-accent/10"
+          className="w-28 px-2 py-2 text-xs border-2 border-foreground bg-background focus:outline-none focus:bg-accent/10"
         />
-
-        {/* Grade Selector Button */}
-        <button
-          type="button"
-          onClick={() => setShowGradeSelector(!showGradeSelector)}
-          className="px-3 py-1 text-xs border-2 border-foreground bg-background font-bold hover:bg-accent/10 min-w-[3rem]"
-        >
-          {course.grade}
-        </button>
 
         {/* Credits */}
         <input
@@ -44,7 +32,7 @@ export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps
           max="20"
           value={course.credits}
           onChange={(e) => onChange({ credits: parseFloat(e.target.value) || 0 })}
-          className="w-12 px-2 py-1 text-xs border-2 border-foreground bg-background text-center focus:outline-none focus:bg-accent/10"
+          className="w-16 px-2 py-2 text-xs border-2 border-foreground bg-background text-center focus:outline-none focus:bg-accent/10"
         />
 
         {/* S/U Toggle */}
@@ -68,35 +56,22 @@ export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps
         </button>
       </div>
 
-      {/* Grade Selector Dropdown */}
-      {showGradeSelector && (
-        <>
-          <div
-            className="fixed inset-0 z-10"
-            onClick={() => setShowGradeSelector(false)}
-          />
-          <div className="absolute left-0 right-0 top-full mt-1 bg-card border-2 border-foreground p-2 z-20 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-            <div className="flex flex-wrap gap-0">
-              {config.grades.map((g) => (
-                <button
-                  key={g.grade}
-                  type="button"
-                  onClick={() => {
-                    onChange({ grade: g.grade });
-                    setShowGradeSelector(false);
-                  }}
-                  className={cn(
-                    "border border-foreground px-2 py-1 text-xs font-bold hover:bg-accent/20 transition-colors min-w-[2.5rem]",
-                    course.grade === g.grade && "bg-foreground text-background"
-                  )}
-                >
-                  {g.grade}
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+      {/* Grade Selector - Always Visible */}
+      <div className="flex flex-wrap gap-0">
+        {config.grades.map((g) => (
+          <button
+            key={g.grade}
+            type="button"
+            onClick={() => onChange({ grade: g.grade })}
+            className={cn(
+              "border border-foreground px-2 py-1 text-xs font-bold hover:bg-accent/20 transition-colors min-w-[2.5rem]",
+              course.grade === g.grade && "bg-foreground text-background"
+            )}
+          >
+            {g.grade}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

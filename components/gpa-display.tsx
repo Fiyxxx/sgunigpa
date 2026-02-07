@@ -71,60 +71,37 @@ function useAnimatedGPA(targetGPA: number, duration: number = 500) {
 export function GPADisplay({ calculated, config }: GPADisplayProps) {
   const animatedGPA = useAnimatedGPA(calculated.gpa);
 
-  const getDegreeClassification = (gpa: number) => {
-    if (!config.degreeClassifications) return null;
-
-    for (const classification of config.degreeClassifications) {
-      if (gpa >= classification.minGPA) {
-        return classification.name;
-      }
-    }
-    return null;
-  };
-
-  const classification = getDegreeClassification(calculated.gpa);
-
   return (
-    <div className="bg-card rounded-lg border border-border p-8 text-center">
-      <div className="mb-6">
-        <div className="text-secondary text-sm font-medium mb-2">
-          Your {config.gpaLabel}
+    <div className="bg-accent border-3 border-foreground p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-baseline gap-2">
+          <div className="text-xs font-bold uppercase text-foreground">
+            {config.gpaLabel}
+          </div>
+          <div
+            className="text-4xl font-bold text-foreground tabular-nums"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {calculated.gpa === 0 ? "--" : animatedGPA.toFixed(2)}
+          </div>
+          <div className="text-xs text-foreground/70">
+            /{config.gpaScale.toFixed(1)}
+          </div>
         </div>
-        <div
-          className="text-6xl md:text-7xl font-bold text-foreground"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {calculated.gpa === 0 ? "--" : animatedGPA.toFixed(2)}
-        </div>
-        <div className="text-sm text-secondary mt-2">
-          out of {config.gpaScale.toFixed(1)}
-        </div>
-      </div>
 
-      {classification && calculated.gpa > 0 && (
-        <div className="mb-4 py-2 px-4 bg-accent/10 rounded-lg">
-          <div className="text-sm font-medium text-accent">
-            {classification}
+        <div className="flex gap-4 text-xs">
+          <div className="text-right">
+            <div className="font-bold text-foreground tabular-nums">
+              {calculated.totalCreditsEarned}
+            </div>
+            <div className="text-foreground/70 uppercase">Earned</div>
           </div>
-        </div>
-      )}
-
-      <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-border">
-        <div>
-          <div className="text-2xl font-semibold text-foreground">
-            {calculated.totalCreditsEarned}
-          </div>
-          <div className="text-sm text-secondary mt-1">
-            {config.creditLabel} Earned
-          </div>
-        </div>
-        <div>
-          <div className="text-2xl font-semibold text-foreground">
-            {calculated.totalCreditsAttempted}
-          </div>
-          <div className="text-sm text-secondary mt-1">
-            {config.creditLabel} Attempted
+          <div className="text-right">
+            <div className="font-bold text-foreground tabular-nums">
+              {calculated.totalCreditsAttempted}
+            </div>
+            <div className="text-foreground/70 uppercase">Total</div>
           </div>
         </div>
       </div>

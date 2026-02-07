@@ -21,7 +21,7 @@ export function UniversitySelector({
   disabled = false,
 }: UniversitySelectorProps) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <div className="flex gap-2 items-center">
       {universities.map((uni) => (
         <button
           key={uni.id}
@@ -29,12 +29,11 @@ export function UniversitySelector({
           disabled={disabled}
           aria-label={`Select ${uni.name}`}
           className={cn(
-            "px-8 py-4 rounded-lg border-2 transition-all duration-200",
-            "text-lg font-semibold min-h-[44px] min-w-[120px]",
-            "hover:border-accent hover:text-accent",
+            "px-6 py-3 border-2 font-bold text-lg transition-all",
+            "hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none",
             selected === uni.id
-              ? "bg-foreground text-background border-foreground"
-              : "bg-card text-foreground border-border",
+              ? "bg-foreground text-background border-foreground shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              : "bg-card text-foreground border-foreground shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]",
             disabled && "opacity-50 cursor-not-allowed"
           )}
         >

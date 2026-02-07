@@ -10,15 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#FAF9F6",
-        foreground: "#1A1A1A",
-        secondary: "#71717A",
-        accent: "#0071E3",
-        border: "#E5E7EB",
+        background: "#FAFAFA",
+        foreground: "#000000",
+        secondary: "#666666",
+        accent: "#FF6B35",
+        border: "#000000",
         card: "#FFFFFF",
+        muted: "#F5F5F5",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-space-mono)", "monospace"],
+        serif: ["var(--font-instrument-serif)", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

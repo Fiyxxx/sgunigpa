@@ -4,8 +4,7 @@
 
 @layer base {
   :root {
-    --font-inter: "Inter", system-ui, sans-serif;
-    --radius: 0.5rem;
+    --radius: 0;
   }
 
   * {
@@ -13,6 +12,21 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  /* Neobrutalist inputs */
+  input[type="text"],
+  input[type="number"],
+  select {
+    @apply border-2 border-foreground;
+  }
+
+  input[type="checkbox"] {
+    @apply border-2 border-foreground rounded-none;
   }
 }

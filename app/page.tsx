@@ -107,9 +107,11 @@ export default function Home() {
 
             {/* Course Headers */}
             <div className="flex items-center gap-2 px-3 text-xs font-bold uppercase text-secondary">
-              <div className="w-28">Code</div>
-              <div className="w-16 text-center">{config.creditLabel}</div>
-              <div className="flex-1">{config.passFail.label.split(" ")[0]}</div>
+              <div className="w-24">Code</div>
+              <div className="flex-1">Grade</div>
+              <div className="w-14 text-center">{config.creditLabel}</div>
+              <div className="w-20">{config.passFail.label.split(" ")[0]}</div>
+              <div className="w-8"></div>
             </div>
 
             {/* Course List */}
@@ -153,6 +155,18 @@ export default function Home() {
           onConfirm={handleConfirmUniversityChange}
           onCancel={handleCancelUniversityChange}
         />
+
+        {/* Footer */}
+        <footer className="mt-8 pt-4 border-t-2 border-foreground text-center">
+          <a
+            href="https://yourwebsite.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-secondary hover:text-foreground transition-colors underline"
+          >
+            Made by [Your Name]
+          </a>
+        </footer>
       </main>
     </>
   );

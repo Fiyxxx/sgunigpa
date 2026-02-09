@@ -89,12 +89,14 @@ export default function Home() {
         <div className="mb-4">
           <div className="flex justify-between items-start mb-4">
             <div className="flex-1"></div>
-            <div className="flex-1 text-center">
+            <header className="flex-1 text-center">
               <h1 className="text-6xl font-serif font-bold mb-1">
                 SGUniGPA
               </h1>
-              <p className="text-sm text-secondary mb-4">Calculate your GPA</p>
-            </div>
+              <p className="text-sm text-secondary mb-4">
+                Free GPA Calculator for NUS, NTU & SMU
+              </p>
+            </header>
             <div className="flex-1 flex justify-end">
               <a
                 href="https://linkedin.com/in/goh-han-sheng"

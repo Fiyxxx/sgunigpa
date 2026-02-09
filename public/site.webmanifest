@@ -1,16 +1,19 @@
 {
-  "name": "SGUniGPA",
+  "name": "SGUniGPA - GPA Calculator for NUS, NTU & SMU",
   "short_name": "SGUniGPA",
-  "description": "GPA Calculator for Singapore Universities",
+  "description": "Free GPA calculator for Singapore university students. Calculate NUS CAP with S/U, NTU GPA, and SMU GPA instantly.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FAF9F6",
-  "theme_color": "#FAF9F6",
+  "background_color": "#FAFAFA",
+  "theme_color": "#FAFAFA",
+  "orientation": "portrait",
+  "categories": ["education", "productivity"],
   "icons": [
     {
       "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

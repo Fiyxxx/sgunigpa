@@ -10,7 +10,7 @@
   "categories": ["education", "productivity"],
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "/file.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

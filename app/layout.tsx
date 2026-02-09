@@ -98,9 +98,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/file.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/file.svg" />
         <meta name="google-site-verification" content="your-verification-code-here" />
       </head>
       <body className={`${spaceMono.variable} ${instrumentSerif.variable} font-mono antialiased`}>

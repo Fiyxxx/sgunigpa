@@ -87,7 +87,7 @@ export default function Home() {
       <main className="min-h-screen p-4 pb-16 max-w-4xl mx-auto">
         {/* Compact Header */}
         <div className="mb-4">
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex justify-between items-center mb-4">
             <div className="flex-1"></div>
             <header className="flex-1 text-center">
               <h1 className="text-6xl font-serif font-bold mb-1">
@@ -108,7 +108,7 @@ export default function Home() {
                 <img
                   src="/gemini.png"
                   alt="LinkedIn"
-                  className="w-10 h-10 object-cover"
+                  className="w-16 h-20 object-cover"
                 />
               </a>
             </div>

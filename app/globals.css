@@ -29,4 +29,14 @@
   input[type="checkbox"] {
     @apply border-2 border-foreground rounded-none;
   }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

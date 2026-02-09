@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
@@ -104,6 +105,7 @@ export default function RootLayout({
       </head>
       <body className={`${spaceMono.variable} ${instrumentSerif.variable} font-mono antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

@@ -14,7 +14,7 @@ interface CourseRowProps {
 export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps) {
   return (
     <div className="bg-card border-2 border-foreground p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {/* Course Code */}
         <input
           type="text"
@@ -24,8 +24,42 @@ export function CourseRow({ course, config, onChange, onDelete }: CourseRowProps
           className="w-24 px-2 py-2 text-xs border-2 border-foreground bg-background focus:outline-none focus:bg-accent/10"
         />
 
-        {/* Grade Selector - Inline boxes with overlapping borders */}
-        <div className="flex border-2 border-foreground">
+        {/* Grade Selector */}
+
+        {/* Mobile: Scrollable wheel */}
+        <div className="md:hidden relative border-2 border-foreground bg-background min-w-[2.5rem] h-[32px] overflow-hidden">
+          <div
+            className="overflow-y-scroll h-full snap-y snap-mandatory scrollbar-hide"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+            onScroll={(e) => {
+              const scrollTop = e.currentTarget.scrollTop;
+              const itemHeight = 32;
+              const index = Math.round(scrollTop / itemHeight);
+              if (config.grades[index] && config.grades[index].grade !== course.grade) {
+                onChange({ grade: config.grades[index].grade });
+              }
+            }}
+          >
+            {config.grades.map((g) => (
+              <div
+                key={g.grade}
+                className={cn(
+                  "h-[32px] flex items-center justify-center text-xs font-bold snap-center cursor-pointer",
+                  course.grade === g.grade ? "bg-foreground text-background" : "bg-background text-foreground"
+                )}
+                onClick={() => onChange({ grade: g.grade })}
+              >
+                {g.grade}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Inline boxes with overlapping borders */}
+        <div className="hidden md:flex flex-wrap border-2 border-foreground w-full lg:w-auto">
           {config.grades.map((g, index) => (
             <button
               key={g.grade}

@@ -15,32 +15,71 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "SGUniGPA - GPA Calculator for NUS, NTU & SMU Students",
+  metadataBase: new URL("https://sgunigpa.com"),
+  title: {
+    default: "SGUniGPA - Free GPA Calculator for NUS, NTU & SMU Students",
+    template: "%s | SGUniGPA",
+  },
   description:
-    "Free GPA calculator for Singapore university students. Supports NUS CAP (with S/U), NTU, and SMU grading systems. Calculate your GPA instantly in your browser.",
+    "Free online GPA calculator for Singapore university students. Calculate your NUS CAP with S/U options, NTU GPA, and SMU GPA instantly. Accurate grading scales, saves locally, no login required.",
   keywords: [
-    "GPA calculator",
+    "GPA calculator Singapore",
     "NUS CAP calculator",
+    "NUS S/U calculator",
     "NTU GPA calculator",
     "SMU GPA calculator",
-    "Singapore university",
-    "S/U calculator",
-    "grade calculator",
+    "Singapore university GPA",
+    "grade calculator NUS",
+    "grade calculator NTU",
+    "grade calculator SMU",
+    "calculate CAP NUS",
+    "calculate GPA Singapore",
+    "university GPA tool",
+    "NUS modular credits calculator",
+    "free GPA calculator",
+    "online GPA calculator",
   ],
-  authors: [{ name: "SGUniGPA" }],
+  authors: [{ name: "Han Sheng", url: "https://www.hansheng.dev" }],
+  creator: "Han Sheng",
+  publisher: "SGUniGPA",
+  alternates: {
+    canonical: "https://sgunigpa.com",
+  },
   openGraph: {
-    title: "SGUniGPA - GPA Calculator for Singapore Universities",
+    title: "SGUniGPA - Free GPA Calculator for NUS, NTU & SMU",
     description:
-      "Calculate your GPA for NUS, NTU, or SMU. Supports S/U options, accurate grading scales, and saves your data locally.",
+      "Calculate your Singapore university GPA instantly. Supports NUS CAP with S/U options, NTU, and SMU grading systems. Free, accurate, and saves your data locally.",
     type: "website",
     url: "https://sgunigpa.com",
     siteName: "SGUniGPA",
+    locale: "en_SG",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "SGUniGPA - GPA Calculator for Singapore Universities",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SGUniGPA — GPA Calculator for Singapore Universities",
+    title: "SGUniGPA - Free GPA Calculator for NUS, NTU & SMU",
     description:
-      "Calculate your GPA for NUS, NTU, or SMU. Supports S/U options, accurate grading scales, and saves your data locally.",
+      "Calculate your Singapore university GPA instantly. Supports NUS CAP with S/U, NTU, and SMU grading systems.",
+    images: ["/og-image.png"],
+    creator: "@hanshengdev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   manifest: "/site.webmanifest",
 };

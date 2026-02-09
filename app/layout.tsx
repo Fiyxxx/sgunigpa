@@ -15,7 +15,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "SGUniGPA — GPA Calculator for NUS, NTU & SMU Students",
+  title: "SGUniGPA - GPA Calculator for NUS, NTU & SMU Students",
   description:
     "Free GPA calculator for Singapore university students. Supports NUS CAP (with S/U), NTU, and SMU grading systems. Calculate your GPA instantly in your browser.",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "SGUniGPA" }],
   openGraph: {
-    title: "SGUniGPA — GPA Calculator for Singapore Universities",
+    title: "SGUniGPA - GPA Calculator for Singapore Universities",
     description:
       "Calculate your GPA for NUS, NTU, or SMU. Supports S/U options, accurate grading scales, and saves your data locally.",
     type: "website",

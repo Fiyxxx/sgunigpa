@@ -13,7 +13,7 @@ const config: Config = {
         background: "#FAFAFA",
         foreground: "#000000",
         secondary: "#666666",
-        accent: "#c395f4",
+        accent: "var(--color-accent, #c395f4)",
         border: "#000000",
         card: "#FFFFFF",
         muted: "#F5F5F5",

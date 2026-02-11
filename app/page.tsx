@@ -10,6 +10,7 @@ import { CourseRow } from "@/components/course-row";
 import { GPADisplay } from "@/components/gpa-display";
 import { ConfirmationDialog } from "@/components/confirmation-dialog";
 import { StructuredData } from "@/components/structured-data";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export default function Home() {
   const {
@@ -88,7 +89,9 @@ export default function Home() {
         {/* Compact Header */}
         <div className="mb-4">
           <div className="flex justify-between items-center mb-4">
-            <div className="flex-1"></div>
+            <div className="flex-1 flex justify-start">
+              <ThemeSwitcher />
+            </div>
             <header className="flex-1 text-center">
               <h1 className="text-6xl font-serif font-bold mb-1">
                 SGUniGPA
@@ -127,19 +130,6 @@ export default function Home() {
             {/* GPA Display */}
             <GPADisplay calculated={calculated} config={config} />
 
-            {/* Course Headers */}
-            <div className="px-3">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase text-secondary">
-                <div className="w-24">Code</div>
-                <div className="flex-1">Grade</div>
-                <div className="w-14 text-center">{config.creditLabel}</div>
-                <div className="flex items-center gap-1">
-                  <div className="w-4"></div>
-                  <span>{config.passFail.label.split(" ")[0]}</span>
-                </div>
-                <div className="ml-auto w-[30px]"></div>
-              </div>
-            </div>
 
             {/* Course List */}
             <div className="space-y-2">
